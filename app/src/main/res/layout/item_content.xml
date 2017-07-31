@@ -1,0 +1,49 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="contentViewModel"
+            type="com.technologies.pittu.videokenassignment.viewmodel.ItemContentViewModel"/>
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/item_people"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackground"
+        android:onClick="@{contentViewModel::onItemClick}"
+        android:padding="5dp">
+
+        <TextView
+            android:id="@+id/label_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:text="@{contentViewModel.title}"
+            android:textColor="@android:color/primary_text_light"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:id="@+id/label_duration"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:padding="5dp"
+            android:background="#1ba4e9"
+            android:text="@{contentViewModel.duration}"
+            android:textColor="@color/white"
+            android:textSize="16sp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginTop="5dp"
+            android:layout_below="@+id/label_title"
+            android:background="@color/black"/>
+    </RelativeLayout>
+
+
+</layout>

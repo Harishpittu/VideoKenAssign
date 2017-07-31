@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <RelativeLayout
+            android:id="@+id/webView"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_centerInParent="true"
+            android:scrollbars="none"/>
+
+        <RelativeLayout
+            android:id="@+id/mtopview"
+            android:layout_width="fill_parent"
+            android:onClick="onClickTopView"
+            android:layout_height="fill_parent"/>
+
+
+        <RelativeLayout
+            android:id="@+id/fslayout"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="#92000000">
+
+
+            <ImageView
+                android:id="@+id/content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:onClick="onClickContent"
+                android:padding="5dp"
+                android:src="@drawable/ic_playlist_play_white_48dp"
+                android:visibility="visible"/>
+
+            <ImageView
+                android:id="@+id/playPause"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:onClick="onClickPlay"
+                android:padding="5dp"
+                android:src="@drawable/ic_play_circle_filled_white_48dp"
+                android:visibility="visible"/>
+
+            <RelativeLayout
+                android:id="@+id/bottombar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginBottom="10dp"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/duration"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="3dip"
+                    android:layout_marginRight="3dip"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center_vertical"
+                    android:text="00:00:00"
+                    android:textColor="#ffffff"
+                    android:visibility="visible"/>
+
+                <!--<SeekBar-->
+                <!--android:id="@+id/seekBar"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_toRightOf="@+id/duration"-->
+                <!--android:foregroundGravity="center_vertical"-->
+                <!--android:visibility="visible" />-->
+
+                <org.adw.library.widgets.discreteseekbar.DiscreteSeekBar
+                    android:id="@+id/seekBar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_toRightOf="@+id/duration"
+                    app:dsb_indicatorColor="@color/black"
+                    app:dsb_indicatorPopupEnabled="false"
+                    app:dsb_indicatorTextAppearance="@style/discretSeekBarTextStyle"
+                    app:dsb_progressColor="@color/white"
+                    app:dsb_rippleColor="@color/white"
+                    app:dsb_thumbSize="20dp"
+                    app:dsb_trackColor="@color/white"/>
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/content_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:padding="50dp"
+            android:visibility="gone">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Table of contents"
+                    android:textSize="18sp"
+                    android:padding="5dp"
+                    android:id="@+id/contents"/>
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recycler_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/contents"
+                    android:layout_above="@+id/close_content"/>
+
+                <Button
+                    android:id="@+id/close_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_margin="10dp"
+                    android:background="#f77074"
+                    android:textColor="@color/white"
+                    android:onClick="onClickCloseContent"
+                    android:text="Close"/>
+            </RelativeLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+</layout>

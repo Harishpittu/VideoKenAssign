@@ -1,0 +1,69 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools">
+
+  <data>
+
+    <variable
+        name="videoViewModel"
+        type="com.technologies.pittu.videokenassignment.viewmodel.ItemVideoViewModel"/>
+  </data>
+
+  <RelativeLayout
+      android:id="@+id/item_people"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:padding="5dp"
+      android:onClick="@{videoViewModel::onItemClick}"
+      android:background="?attr/selectableItemBackground">
+
+
+    <ImageView
+        android:id="@+id/image_people"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_centerVertical="true"
+        tools:imageUrl="@{videoViewModel.imageUrl}"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/details_layout"
+        android:padding="5dp"
+        android:layout_toEndOf="@+id/image_people"
+        android:layout_toRightOf="@+id/image_people"
+        android:orientation="vertical">
+
+      <TextView
+          android:id="@+id/label_id"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:padding="5dp"
+          android:maxLines="1"
+          android:textStyle="bold"
+          android:ellipsize="end"
+          android:text="@{videoViewModel.title}"
+          android:textColor="@android:color/primary_text_light"
+          android:textSize="16sp"/>
+
+      <TextView
+          android:id="@+id/label_word"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:padding="5dp"
+          android:maxLines="3"
+          android:minLines="3"
+          android:ellipsize="end"
+          android:text="@{videoViewModel.description}"
+          android:textColor="@android:color/primary_text_light"
+          android:textSize="16sp"/>
+
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_below="@+id/details_layout"
+        android:background="@color/black"/>
+  </RelativeLayout>
+
+
+</layout>
